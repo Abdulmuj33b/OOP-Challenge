@@ -1,15 +1,39 @@
 from pet import Pet
 
-# Create a pet object
-max_pet = Pet("Max")
+def main():
+    my_pet = Pet("Fluffy")
 
-# Test pet methods
-max_pet.eat()
-max_pet.play()
-max_pet.sleep()
-max_pet.train("roll over")
-max_pet.train("play dead")
+    while True:
+        print("\nChoose an action:")
+        print("1. Eat")
+        print("2. Sleep")
+        print("3. Play")
+        print("4. Get Status")
+        print("5. Train Trick")
+        print("6. Show Tricks")
+        print("7. Exit")
 
-# Show tricks and status
-max_pet.show_tricks()
-max_pet.get_status()
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            my_pet.eat()
+        elif choice == "2":
+            my_pet.sleep()
+        elif choice == "3":
+            my_pet.play()
+        elif choice == "4":
+            my_pet.get_status()
+        elif choice == "5":
+            trick = input("Enter a new trick: ")
+            my_pet.train(trick)
+        elif choice == "6":
+            my_pet.show_tricks()
+        elif choice == "7":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice, please try again.")
+
+if __name__ == "__main__":
+    main()
+
