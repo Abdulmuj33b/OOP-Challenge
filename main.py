@@ -1,21 +1,17 @@
 from pet import Pet
 
 def main():
-    my_pet = Pet("Fluffy")
+    pet_name = input("Name your pet: ")
+    my_pet = Pet(pet_name)
 
     while True:
-        print("\nChoose an action:")
-        print("1. Eat 🍖")
-        print("2. Sleep 😴")
-        print("3. Play 🎾")
-        print("4. Get Status 📊")
-        print("5. Train Trick 🐕")
-        print("6. Show Tricks 🎭")
-        print("7. Exit 🚪")
+        print("\n💡 Choose an action:")
+        options = ["Eat 🍖", "Sleep 😴", "Play 🎾", "Get Status 📊", "Train Trick 🐕", "Show Tricks 🎭", "Exit 🚪"]
+        for i, option in enumerate(options, 1):
+            print(f"{i}. {option}")
 
         try:
             choice = int(input("Enter a number (1-7): "))
-
             if choice == 1:
                 my_pet.eat()
             elif choice == 2:
@@ -30,15 +26,14 @@ def main():
             elif choice == 6:
                 my_pet.show_tricks()
             elif choice == 7:
-                print("Goodbye! 👋")
+                print("\n👋 Goodbye!")
                 break
             else:
-                print("Invalid choice, please enter a number between 1 and 7.")
+                print("\n⚠️ Invalid choice! Please enter a number between 1 and 7.")
         except ValueError:
-            print("Please enter a valid number.")
+            print("\n⚠️ Please enter a valid number!")
 
 if __name__ == "__main__":
     main()
-
 
 
