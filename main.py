@@ -6,12 +6,12 @@ def main():
 
     while True:
         print("\n💡 Choose an action:")
-        options = ["Eat 🍖", "Sleep 😴", "Play 🎾", "Get Status 📊", "Train Trick 🐕", "Show Tricks 🎭", "Exit 🚪"]
+        options = ["Eat 🍖", "Sleep 😴", "Play 🎾", "Get Status 📊", "Train Trick 🐕", "Exit 🚪"]
         for i, option in enumerate(options, 1):
             print(f"{i}. {option}")
 
         try:
-            choice = int(input("Enter a number (1-7): "))
+            choice = int(input("Enter a number (1-6): "))
             if choice == 1:
                 my_pet.eat()
             elif choice == 2:
@@ -24,16 +24,15 @@ def main():
                 trick = input("Enter a new trick: ")
                 my_pet.train(trick)
             elif choice == 6:
-                my_pet.show_tricks()
-            elif choice == 7:
                 print("\n👋 Goodbye!")
                 break
             else:
-                print("\n⚠️ Invalid choice! Please enter a number between 1 and 7.")
+                print("\n⚠️ Invalid choice! Please enter a number between 1 and 6.")
         except ValueError:
             print("\n⚠️ Please enter a valid number!")
 
 if __name__ == "__main__":
     main()
+
 
 
