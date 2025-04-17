@@ -1,38 +1,42 @@
 class Pet:
     def __init__(self, name):
         self.name = name
-        self.hunger = 5
-        self.energy = 5
-        self.happiness = 5
+        self.__hunger = 5
+        self.__energy = 5
+        self.__happiness = 5
         self.tricks = []
 
     def eat(self):
-        self.hunger = max(0, self.hunger - 3)
-        self.happiness = min(10, self.happiness + 1)
-        print(f"{self.name} has eaten. Hunger: {self.hunger}, Happiness: {self.happiness}")
+        self.__hunger = max(0, self.__hunger - 3)
+        self.__happiness = min(10, self.__happiness + 1)
+        print(f"\n🍖 {self.name} has eaten!")
 
     def sleep(self):
-        self.energy = min(10, self.energy + 5)
-        print(f"{self.name} has slept. Energy: {self.energy}")
+        self.__energy = min(10, self.__energy + 5)
+        print(f"\n😴 {self.name} had a good sleep!")
 
     def play(self):
-        self.energy = max(0, self.energy - 2)
-        self.happiness = min(10, self.happiness + 2)
-        self.hunger = min(10, self.hunger + 1)
-        print(f"{self.name} played! Energy: {self.energy}, Happiness: {self.happiness}, Hunger: {self.hunger}")
+        if self.__energy >= 2:
+            self.__energy -= 2
+            self.__happiness = min(10, self.__happiness + 2)
+            self.__hunger = min(10, self.__hunger + 1)
+            print(f"\n🎾 {self.name} played and had fun!")
+        else:
+            print(f"\n⚠️ {self.name} is too tired to play! Try sleeping first.")
 
     def get_status(self):
-        print(f"{self.name} - Hunger: {self.hunger}, Energy: {self.energy}, Happiness: {self.happiness}")
+        print(f"\n📊 {self.name}'s Current Status:")
+        print(f"   Hunger:   {'🟩' * self.__hunger}{'⬜' * (10 - self.__hunger)} {self.__hunger}/10")
+        print(f"   Energy:   {'🟩' * self.__energy}{'⬜' * (10 - self.__energy)} {self.__energy}/10")
+        print(f"   Happiness: {'🟩' * self.__happiness}{'⬜' * (10 - self.__happiness)} {self.__happiness}/10")
 
     def train(self, trick):
         self.tricks.append(trick)
-        self.happiness = min(10, self.happiness + 1)
-        print(f"{self.name} learned a new trick: {trick}. Happiness: {self.happiness}")
+        self.__happiness = min(10, self.__happiness + 1)
+        print(f"\n🐕 {self.name} learned a new trick: '{trick}'!")
 
     def show_tricks(self):
         if self.tricks:
-            print(f"{self.name} knows the following tricks: {', '.join(self.tricks)}")
+            print(f"\n🎭 {self.name} knows these tricks: {', '.join(self.tricks)}")
         else:
-            print(f"{self.name} hasn't learned any tricks yet.")
-
-
+            print(f"\n❌ {self.name} hasn't learned any tricks yet.")
