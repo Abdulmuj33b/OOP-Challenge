@@ -24,7 +24,9 @@ def main():
                 trick = input("Enter a new trick: ")
                 my_pet.train(trick)
             elif choice == 6:
-                print("\n👋 Goodbye!")
+                print("\n📊 Final Status Before Exit:")
+                my_pet.get_status()
+                print("\n👋 Goodbye! Take care of your pet!")
                 break
             else:
                 print("\n⚠️ Invalid choice! Please enter a number between 1 and 6.")
@@ -33,6 +35,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
 
