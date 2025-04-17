@@ -24,19 +24,17 @@ class Pet:
         else:
             print(f"\n⚠️ {self.name} is too tired to play! Try sleeping first.")
 
-    def get_status(self):
-        print(f"\n📊 {self.name}'s Current Status:")
-        print(f"   Hunger:   {'🟩' * self.__hunger}{'⬜' * (10 - self.__hunger)} {self.__hunger}/10")
-        print(f"   Energy:   {'🟩' * self.__energy}{'⬜' * (10 - self.__energy)} {self.__energy}/10")
-        print(f"   Happiness: {'🟩' * self.__happiness}{'⬜' * (10 - self.__happiness)} {self.__happiness}/10")
-
     def train(self, trick):
         self.tricks.append(trick)
         self.__happiness = min(10, self.__happiness + 1)
         print(f"\n🐕 {self.name} learned a new trick: '{trick}'!")
 
-    def show_tricks(self):
+    def get_status(self):
+        print(f"\n📊 {self.name}'s Current Status:")
+        print(f"   Hunger:   {'🟩' * self.__hunger}{'⬜' * (10 - self.__hunger)} {self.__hunger}/10")
+        print(f"   Energy:   {'🟩' * self.__energy}{'⬜' * (10 - self.__energy)} {self.__energy}/10")
+        print(f"   Happiness: {'🟩' * self.__happiness}{'⬜' * (10 - self.__happiness)} {self.__happiness}/10")
         if self.tricks:
-            print(f"\n🎭 {self.name} knows these tricks: {', '.join(self.tricks)}")
+            print(f"   Tricks Learned: {', '.join(self.tricks)}")
         else:
-            print(f"\n❌ {self.name} hasn't learned any tricks yet.")
+            print(f"   Tricks Learned: ❌ None yet.")
